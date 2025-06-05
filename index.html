@@ -5,27 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vérifiez votre éligibilité CPF - Formation</title>
 <style>
+  /* Reset et base */
+  * {
+    box-sizing: border-box;
+  }
   body {
-    font-family: Arial, sans-serif;
-    background: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0; padding: 0;
+    background: #f8fafc;
     color: #222;
+    line-height: 1.5;
   }
   header {
     background: #003366;
     color: white;
-    padding: 25px 10px;
+    padding: 30px 20px;
     text-align: center;
   }
   header h1 {
-    margin: 0; font-weight: 700;
+    margin: 0;
+    font-size: 1.9rem;
   }
   .logos {
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin: 20px 0;
+    padding: 25px 10px 15px 10px;
     flex-wrap: wrap;
+    background: #e3ebf8;
   }
   .logos img {
     height: 70px;
@@ -34,42 +41,51 @@
   nav {
     background: #0055a5;
     text-align: center;
-    padding: 12px 0;
+    padding: 14px 0;
+    margin-bottom: 20px;
   }
   nav a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.15em;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  nav a:hover {
+    text-decoration: underline;
   }
   .warnings {
     max-width: 900px;
-    margin: 20px auto;
+    margin: 0 auto 40px auto;
     color: red;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1.1rem;
     text-align: center;
-    font-size: 1.1em;
+    line-height: 1.3;
+  }
+  .warnings p {
+    margin: 8px 0;
   }
   .formations {
-    max-width: 1200px;
-    margin: 30px auto;
+    max-width: 1140px;
+    margin: 0 auto 60px auto;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-    gap: 25px;
+    gap: 26px;
     padding: 0 15px;
   }
   .card {
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.22s ease;
   }
   .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
   }
   .card img {
     width: 100%;
@@ -77,79 +93,93 @@
     object-fit: cover;
   }
   .card-content {
-    padding: 15px;
+    padding: 18px 16px;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   .card-content h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
+    margin: 0 0 12px 0;
+    font-size: 1.25rem;
     color: #003366;
   }
   .card-content p {
-    font-size: 0.95em;
-    margin: 0 0 15px 0;
+    flex-grow: 1;
+    font-size: 0.95rem;
     color: #444;
+    margin-bottom: 14px;
   }
   .btn-eligibilite {
     background: #e30613;
     color: white;
-    font-weight: bold;
-    padding: 12px 0;
+    font-weight: 700;
+    padding: 11px 0;
     text-align: center;
+    border-radius: 6px;
     user-select: none;
-    font-size: 1em;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
   }
   .btn-eligibilite:hover {
-    background: #b0040f;
+    background-color: #b2040f;
   }
   section#formulaire {
     max-width: 600px;
-    margin: 50px auto 80px auto;
+    margin: 0 auto 80px auto;
     background: white;
-    padding: 30px 25px;
+    padding: 32px 28px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 24px rgba(0,0,0,0.12);
   }
   section#formulaire h2 {
     text-align: center;
     color: #003366;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
   }
   form label {
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
+    font-size: 1rem;
   }
   form input, form select, form textarea {
     width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 18px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
+    padding: 11px 13px;
+    margin-bottom: 22px;
+    border: 1.6px solid #ccc;
+    border-radius: 7px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  form input:focus, form select:focus, form textarea:focus {
+    border-color: #0055a5;
+    outline: none;
   }
   form button {
     background: #e30613;
     color: white;
-    font-weight: bold;
+    font-weight: 700;
     border: none;
-    padding: 15px;
+    padding: 15px 0;
     width: 100%;
-    font-size: 1.1em;
-    border-radius: 8px;
+    font-size: 1.15rem;
+    border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   form button:hover {
-    background: #b0040f;
+    background-color: #b2040f;
   }
   #thankYouMessage {
     display: none;
     text-align: center;
     font-weight: 700;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     color: green;
+    padding: 30px 0;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 700px) {
     .formations {
       grid-template-columns: 1fr;
     }
@@ -179,7 +209,9 @@
 </div>
 
 <section class="formations" aria-label="Liste des formations">
-  <!-- Cartes formations générées par JS -->
+
+  <!-- Les cartes formation seront insérées par JavaScript -->
+
 </section>
 
 <section id="formulaire" aria-label="Formulaire d'éligibilité CPF">
@@ -209,7 +241,7 @@
 </section>
 
 <script>
-  // Liste des formations avec images + descriptions cohérentes
+  // Liste des formations avec images et descriptions
   const formations = [
     {
       titre: "Anglais",
@@ -233,60 +265,138 @@
     },
     {
       titre: "Allemand",
-      desc: "Apprenez l'allemand, langue majeure en Europe.",
-      img: "https://cdn.pixabay.com/photo/2017/01/23/15/00/germany-2003084_960_720.jpg"
+      desc: "Apprenez l'allemand pour élargir vos opportunités professionnelles.",
+      img: "https://cdn.pixabay.com/photo/2014/04/03/10/16/germany-310492_960_720.png"
     },
     {
       titre: "Excel",
-      desc: "Devenez expert en Excel et gestion de données.",
-      img: "https://cdn.pixabay.com/photo/2015/12/08/00/26/excel-1086606_960_720.jpg"
+      desc: "Devenez expert en Excel et améliorez votre productivité.",
+      img: "https://cdn.pixabay.com/photo/2017/06/09/09/14/excel-2389217_960_720.jpg"
     },
     {
       titre: "Word",
-      desc: "Maîtrisez la mise en forme et création de documents.",
-      img: "https://cdn.pixabay.com/photo/2015/01/12/17/48/typewriter-598843_960_720.jpg"
+      desc: "Maîtrisez Microsoft Word pour vos documents professionnels.",
+      img: "https://cdn.pixabay.com/photo/2015/12/08/00/28/microsoft-1080600_960_720.jpg"
     },
     {
       titre: "PowerPoint",
-      desc: "Créez des présentations impactantes et professionnelles.",
-      img: "https://cdn.pixabay.com/photo/2016/11/29/03/29/business-1868015_960_720.jpg"
+      desc: "Créez des présentations impactantes avec PowerPoint.",
+      img: "https://cdn.pixabay.com/photo/2016/11/29/02/30/presentation-1869711_960_720.jpg"
     },
     {
       titre: "Wordpress",
-      desc: "Créez et gérez facilement un site web avec WordPress.",
-      img: "https://cdn.pixabay.com/photo/2017/06/26/23/14/wordpress-2448787_960_720.jpg"
+      desc: "Apprenez à créer et gérer un site avec Wordpress.",
+      img: "https://cdn.pixabay.com/photo/2015/03/26/09/40/wordpress-690438_960_720.jpg"
     },
     {
       titre: "Photoshop",
-      desc: "Retouchez vos photos comme un professionnel.",
-      img: "https://cdn.pixabay.com/photo/2016/11/22/19/02/photoshop-1852699_960_720.jpg"
+      desc: "Maîtrisez les bases de Photoshop pour vos créations graphiques.",
+      img: "https://cdn.pixabay.com/photo/2016/03/27/07/08/photoshop-1280537_960_720.jpg"
     },
     {
       titre: "Illustrator",
-      desc: "Créez des illustrations vectorielles de qualité.",
-      img: "https://cdn.pixabay.com/photo/2017/01/20/15/06/illustrator-1998123_960_720.jpg"
+      desc: "Créez des illustrations vectorielles avec Illustrator.",
+      img: "https://cdn.pixabay.com/photo/2015/09/14/16/36/illustrator-938071_960_720.jpg"
     },
     {
       titre: "Portugais",
-      desc: "Découvrez la langue et culture du Portugal et Brésil.",
-      img: "https://cdn.pixabay.com/photo/2017/04/06/20/32/brazil-2205347_960_720.jpg"
+      desc: "Apprenez le portugais pour voyager et communiquer.",
+      img: "https://cdn.pixabay.com/photo/2015/04/10/00/41/brazil-715135_960_720.jpg"
     },
     {
-      titre: "Technicien administratif",
-      desc: "Formez-vous aux compétences administratives essentielles.",
-      img: "https://cdn.pixabay.com/photo/2016/09/11/15/48/office-1664387_960_720.jpg"
+      titre: "Technicien administratif (secrétariat)",
+      desc: "Formation pour devenir technicien administratif compétent.",
+      img: "https://cdn.pixabay.com/photo/2017/08/10/07/30/business-2616284_960_720.jpg"
     },
     {
       titre: "Couture et mode",
-      desc: "Apprenez la couture et les bases de la mode.",
-      img: "https://cdn.pixabay.com/photo/2016/06/18/17/42/fashion-1469959_960_720.jpg"
+      desc: "Apprenez les bases de la couture et création de mode.",
+      img: "https://cdn.pixabay.com/photo/2017/08/07/20/35/sewing-2603071_960_720.jpg"
     },
     {
       titre: "Bilan de compétence",
-      desc: "Faites le point sur votre parcours professionnel.",
-      img: "https://cdn.pixabay.com/photo/2016/02/19/10/00/consulting-1209826_960_720.jpg"
+      desc: "Évaluez vos compétences et planifiez votre avenir professionnel.",
+      img: "https://cdn.pixabay.com/photo/2017/05/10/20/28/business-2309518_960_720.jpg"
     },
     {
       titre: "Pâtisserie",
-      desc: "Apprenez les secrets de la pâtisserie française.",
-      img: "https://cdn.pixabay.com/photo/2015/09/02
+      desc: "Maîtrisez l'art de la pâtisserie française.",
+      img: "https://cdn.pixabay.com/photo/2017/05/08/13/26/cake-2305192_960_720.jpg"
+    },
+    {
+      titre: "Petite enfance",
+      desc: "Formation pour travailler avec les jeunes enfants.",
+      img: "https://cdn.pixabay.com/photo/2016/01/19/17/39/child-1149032_960_720.jpg"
+    }
+  ];
+
+  // Insertion des cartes formations + ajout options dans select
+  const container = document.querySelector('.formations');
+  const selectFormation = document.querySelector('#formation');
+
+  formations.forEach(f => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `Vérifier l'éligibilité pour la formation ${f.titre}`);
+    card.innerHTML = `
+      <img src="${f.img}" alt="Image représentant la formation ${f.titre}" />
+      <div class="card-content">
+        <h3>${f.titre}</h3>
+        <p>${f.desc}</p>
+        <div class="btn-eligibilite" tabindex="0">Vérifier mon éligibilité</div>
+      </div>
+    `;
+    container.appendChild(card);
+
+    // Click sur la carte ou le bouton redirige au formulaire avec la formation sélectionnée
+    card.querySelector('.btn-eligibilite').addEventListener('click', () => scrollToForm(f.titre));
+    card.addEventListener('click', () => scrollToForm(f.titre));
+    card.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') scrollToForm(f.titre);
+    });
+
+    const option = document.createElement('option');
+    option.value = f.titre;
+    option.textContent = f.titre;
+    selectFormation.appendChild(option);
+  });
+
+  // Scroll et sélection formation dans formulaire
+  function scrollToForm(formation) {
+    selectFormation.value = formation;
+    document.getElementById("formulaire").scrollIntoView({ behavior: 'smooth' });
+    selectFormation.focus();
+  }
+
+  // Formulaire avec fetch POST vers Google Apps Script
+  const form = document.getElementById("eligibiliteForm");
+  const message = document.getElementById("thankYouMessage");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbyvFDCrylG0OTBK98FBVBhySdHww-vW9X0KpOwtv3S2lwWc8yScqFeLSUbCZu69KDZr/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      form.reset();
+      form.style.display = "none";
+      message.style.display = "block";
+      message.focus();
+    } catch (err) {
+      alert("Erreur lors de l'envoi. Veuillez réessayer.");
+    }
+  });
+</script>
+
+</body>
+</html>
