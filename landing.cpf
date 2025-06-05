@@ -1,146 +1,144 @@
-index.html <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobilisez vos droits CPF</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vérifiez vos droits à la formation</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      background: #f8f9fa;
       padding: 20px;
     }
     .container {
-      max-width: 700px;
-      margin: auto;
-      background: #fff;
+      max-width: 600px;
+      background: white;
       padding: 30px;
-      border-radius: 10px;
+      margin: auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
     }
     h1 {
-      color: #2c3e50;
       text-align: center;
+      color: #007bff;
     }
     label {
+      display: block;
+      margin-top: 15px;
       font-weight: bold;
     }
-    input, select, textarea {
+    input, select {
       width: 100%;
       padding: 10px;
-      margin: 10px 0 20px;
-      border: 1px solid #ccc;
+      margin-top: 5px;
       border-radius: 5px;
+      border: 1px solid #ccc;
     }
     button {
-      background-color: #27ae60;
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
       color: white;
-      padding: 12px 20px;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
-      width: 100%;
+      font-size: 16px;
     }
-    button:hover {
-      background-color: #219150;
+    .note {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
     }
-    .images {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 20px;
+    .badges {
+      text-align: center;
+      margin-top: 20px;
     }
-    .images img {
-      width: 100px;
-      height: auto;
+    .badges img {
+      height: 50px;
+      margin: 5px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Connaître et mobiliser vos droits à la formation 📚</h1>
-    <div class="images">
-      <img src="https://upload.wikimedia.org/wikipedia/fr/e/ed/Logo_CPF_2019.png" alt="Logo CPF">
-      <img src="https://www.qualite.gouv.fr/sites/default/files/2021-06/Logo_Qualiopi_0.png" alt="Logo Qualiopi">
-      <img src="https://cdn.pixabay.com/photo/2016/03/23/13/36/training-1272040_1280.jpg" alt="Formation">
-    </div>
-    <p>Veuillez remplir le formulaire ci-dessous pour être recontacté par un conseiller qui vous communiquera votre code d'accès AR25 et vous accompagnera dans vos démarches.</p>
+    <h1>📋 Vérifiez vos droits CPF</h1>
+    <p>Remplissez ce formulaire pour être recontacté par un conseiller.</p>
+    <form id="cpfForm">
+      <label>Nom</label>
+      <input type="text" id="nom" required />
 
-    <form>
-      <label for="nom">Nom :</label>
-      <input type="text" id="nom" required>
+      <label>Prénom</label>
+      <input type="text" id="prenom" required />
 
-      <label for="prenom">Prénom :</label>
-      <input type="text" id="prenom" required>
+      <label>Email</label>
+      <input type="email" id="email" required />
 
-      <label for="email">Adresse email :</label>
-      <input type="email" id="email" required>
+      <label>Téléphone</label>
+      <input type="tel" id="telephone" required />
 
-      <label for="telephone">Téléphone :</label>
-      <input type="tel" id="telephone" required>
-
-      <label for="situation">Votre situation actuelle :</label>
-      <select id="situation" required>
-        <option value="">-- Sélectionnez --</option>
-        <option value="actif">Salarié(e)</option>
-        <option value="chomage">Demandeur d’emploi</option>
+      <label>Statut actuel</label>
+      <select id="statut">
+        <option>En activité</option>
+        <option>Au chômage</option>
+        <option>En reconversion</option>
       </select>
 
-      <label for="anciennete">Avez-vous travaillé au moins 2 ans ?</label>
-      <select id="anciennete" required>
-        <option value="">-- Sélectionnez --</option>
-        <option value="oui">Oui</option>
-        <option value="non">Non</option>
+      <label>Avez-vous travaillé au moins 2 ans ?</label>
+      <select id="experience">
+        <option>Oui</option>
+        <option>Non</option>
       </select>
 
-      <label for="secteur">Secteur d’activité :</label>
-      <select id="secteur" required>
-        <option value="">-- Sélectionnez --</option>
-        <option value="prive">Privé</option>
-        <option value="public">Public</option>
+      <label>Secteur</label>
+      <select id="secteur">
+        <option>Privé</option>
+        <option>Public</option>
       </select>
 
-      <label for="identite">Avez-vous créé votre Identité Numérique La Poste ?</label>
-      <select id="identite" required>
-        <option value="">-- Sélectionnez --</option>
-        <option value="oui">Oui</option>
-        <option value="non">Non</option>
+      <label>Avez-vous déjà créé votre Identité Numérique ?</label>
+      <select id="identite">
+        <option>Oui</option>
+        <option>Non</option>
+        <option>Je ne sais pas</option>
       </select>
 
-      <label for="formation">Formation souhaitée :</label>
-      <select id="formation" required>
-        <option value="">-- Sélectionnez --</option>
-        <option value="anglais">Anglais</option>
-        <option value="bureautique">Pack Office</option>
-        <option value="wordpress">WordPress</option>
-        <option value="ia">Intelligence Artificielle</option>
-        <option value="compta">Comptabilité</option>
-        <option value="gestion_projet">Gestion de projet</option>
-        <option value="excel">Excel avancé</option>
+      <label>Formation souhaitée</label>
+      <select id="formation">
+        <option>Anglais</option>
+        <option>WordPress</option>
+        <option>Excel</option>
+        <option>Informatique de base</option>
+        <option>IA & Automatisation</option>
+        <option>Autre</option>
       </select>
 
-      <button type="submit">Envoyer ma demande ✅</button>
+      <button type="submit">✅ Être rappelé</button>
     </form>
+
+    <div class="note">
+      Un conseiller vous contactera et vous transmettra le code <strong>AR25</strong>.
+    </div>
+
+    <div class="badges">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Logo_Mon_Compte_Formation.svg/512px-Logo_Mon_Compte_Formation.svg.png" alt="CPF" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Logo_Qualiopi_RVB.png/320px-Logo_Qualiopi_RVB.png" alt="Qualiopi" />
+    </div>
   </div>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-
-    if (!form) return;
-
-    form.addEventListener("submit", function (e) {
+    document.getElementById("cpfForm").addEventListener("submit", function(e) {
       e.preventDefault();
-
       const data = {
-        nom: document.getElementById("nom")?.value || "",
-        prenom: document.getElementById("prenom")?.value || "",
-        email: document.getElementById("email")?.value || "",
-        telephone: document.getElementById("telephone")?.value || "",
-        situation: document.getElementById("situation")?.value || "",
-        anciennete: document.getElementById("anciennete")?.value || "",
-        secteur: document.getElementById("secteur")?.value || "",
-        identite: document.getElementById("identite")?.value || "",
-        formation: document.getElementById("formation")?.value || ""
+        nom: document.getElementById("nom").value,
+        prenom: document.getElementById("prenom").value,
+        email: document.getElementById("email").value,
+        telephone: document.getElementById("telephone").value,
+        statut: document.getElementById("statut").value,
+        experience: document.getElementById("experience").value,
+        secteur: document.getElementById("secteur").value,
+        identite: document.getElementById("identite").value,
+        formation: document.getElementById("formation").value
       };
 
       fetch("https://script.google.com/macros/s/AKfycbyvFDCrylG0OTBK98FBVBhySdHww-vW9X0KpOwtv3S2lwWc8yScqFeLSUbCZu69KDZr/exec", {
@@ -148,17 +146,9 @@ index.html <!DOCTYPE html>
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" }
       })
-      .then(res => {
-        if (res.ok) {
-          alert("✅ Inscription envoyée avec succès ! Vous serez recontacté très bientôt.");
-          form.reset();
-        } else {
-          throw new Error("Erreur de soumission");
-        }
-      })
-      .catch(err => alert("❌ Une erreur est survenue : " + err.message));
+      .then(() => alert("✅ Inscription enregistrée !"))
+      .catch(err => alert("❌ Erreur lors de l’envoi : " + err));
     });
-  });
   </script>
 </body>
 </html>
