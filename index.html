@@ -45,6 +45,7 @@
       color: red;
       text-align: center;
       padding: 20px;
+      font-size: 1.1em;
     }
     .formations {
       display: grid;
@@ -59,6 +60,10 @@
       overflow: hidden;
       text-align: center;
       cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.02);
     }
     .card img {
       width: 100%;
@@ -103,8 +108,8 @@
 
   <div class="logos">
     <img src="https://www.afpols.fr/images/cpf.png/@@download/image/CPF.png" alt="Logo CPF">
-    <img src="https://certifopac.fr/wp-content/uploads/2021/01/logo-qualiopi.jpg" alt="Logo Qualiopi">
-    <img src="https://upload.wikimedia.org/wikipedia/fr/6/6f/Logo_de_la_R%C3%A9publique_fran%C3%A7aise_%282020%29.svg" alt="Logo République Française">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Logo_Qualiopi.svg/512px-Logo_Qualiopi.svg.png" alt="Logo Qualiopi">
+    <img src="https://www.gouvernement.fr/sites/default/files/contenu/piece-jointe/2022/09/logotype_du_gouvernement.png" alt="Logo République Française">
   </div>
 
   <nav>
@@ -118,40 +123,53 @@
   </div>
 
   <section class="formations">
-    <div class="card" onclick="document.getElementById('formulaire').scrollIntoView({behavior: 'smooth'})">
-      <img src="https://source.unsplash.com/400x300/?english,learning" alt="Anglais">
-      <h3>Anglais</h3>
-      <p>Améliorez votre niveau d’anglais pour des opportunités professionnelles à l’international.</p>
-      <div class="cta">Vérifier votre éligibilité</div>
-    </div>
-    <div class="card" onclick="document.getElementById('formulaire').scrollIntoView({behavior: 'smooth'})">
-      <img src="https://source.unsplash.com/400x300/?ai,technology" alt="Intelligence Artificielle">
-      <h3>Intelligence Artificielle</h3>
-      <p>Comprenez et maîtrisez les bases de l’IA pour booster votre carrière dans le digital.</p>
-      <div class="cta">Vérifier votre éligibilité</div>
-    </div>
-    <!-- Ajoutez les autres formations ici en suivant ce modèle -->
+    <!-- Liste complète des formations -->
+    <script>
+      const formations = [
+        { titre: "Anglais", desc: "Améliorez votre anglais pour le monde professionnel.", img: "https://source.unsplash.com/400x300/?english,language" },
+        { titre: "Intelligence Artificielle", desc: "Initiez-vous aux technologies d'IA et machine learning.", img: "https://source.unsplash.com/400x300/?artificial,intelligence" },
+        { titre: "Espagnol", desc: "Développez vos compétences en espagnol oral et écrit.", img: "https://source.unsplash.com/400x300/?spanish,language" },
+        { titre: "Italien", desc: "Maîtrisez l'italien pour enrichir votre culture et vos opportunités.", img: "https://source.unsplash.com/400x300/?italian,language" },
+        { titre: "Allemand", desc: "Apprenez l'allemand, langue d'affaires incontournable.", img: "https://source.unsplash.com/400x300/?german,language" },
+        { titre: "Excel", desc: "Maîtrisez les fonctions avancées d'Excel.", img: "https://source.unsplash.com/400x300/?excel,spreadsheet" },
+        { titre: "Word", desc: "Apprenez à utiliser Word efficacement.", img: "https://source.unsplash.com/400x300/?word,document" },
+        { titre: "PowerPoint", desc: "Créez des présentations professionnelles avec PowerPoint.", img: "https://source.unsplash.com/400x300/?powerpoint,presentation" },
+        { titre: "WordPress", desc: "Créez votre site internet avec WordPress.", img: "https://source.unsplash.com/400x300/?wordpress,website" },
+        { titre: "Photoshop", desc: "Retouchez vos images comme un pro.", img: "https://source.unsplash.com/400x300/?photoshop,design" },
+        { titre: "Illustrator", desc: "Créez des visuels vectoriels professionnels.", img: "https://source.unsplash.com/400x300/?illustrator,vector" },
+        { titre: "Portugais", desc: "Découvrez la langue et la culture lusophone.", img: "https://source.unsplash.com/400x300/?portuguese,language" },
+        { titre: "Technicien administratif", desc: "Formez-vous aux outils de gestion administrative.", img: "https://source.unsplash.com/400x300/?administration,office" },
+        { titre: "Couture et mode", desc: "Exprimez votre créativité par la couture et le stylisme.", img: "https://source.unsplash.com/400x300/?fashion,design" },
+        { titre: "Bilan de compétence", desc: "Faites le point sur votre carrière avec un professionnel.", img: "https://source.unsplash.com/400x300/?career,coaching" },
+        { titre: "Pâtisserie", desc: "Apprenez les techniques de pâtisserie française.", img: "https://source.unsplash.com/400x300/?pastry,cake" },
+        { titre: "Petite enfance", desc: "Préparez-vous aux métiers de la petite enfance.", img: "https://source.unsplash.com/400x300/?childcare,education" }
+      ];
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector(".formations");
+        formations.forEach(f => {
+          const div = document.createElement("div");
+          div.className = "card";
+          div.onclick = () => document.getElementById("formulaire").scrollIntoView({behavior: 'smooth'});
+          div.innerHTML = `
+            <img src="${f.img}" alt="${f.titre}">
+            <h3>${f.titre}</h3>
+            <p>${f.desc}</p>
+            <div class="cta">Vérifier votre éligibilité</div>
+          `;
+          container.appendChild(div);
+        });
+      });
+    </script>
   </section>
 
   <section class="form-section" id="formulaire">
     <h2 style="text-align: center;">Formulaire d’éligibilité</h2>
-    <iframe src="https://script.google.com/macros/s/AKfycbyvFDCrylG0OTBK98FBVBhySdHww-vW9X0KpOwtv3S2lwWc8yScqFeLSUbCZu69KDZr/exec"></iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfX2R9NqYykK3WT4WJgr4O7OlU4XlEQ4WmJVYUk0FzYTuW8XQ/viewform?embedded=true">Chargement…</iframe>
     <div class="thank-you" id="thankYouMessage">
       Merci pour votre demande !<br>
       Ne soumettez pas une nouvelle demande.<br>
       Vous serez recontacté rapidement et recevrez le code de suivi AR26.
     </div>
   </section>
-
-  <script>
-    // Simulation d'affichage de message de remerciement après envoi (à adapter avec traitement réel si besoin)
-    const iframe = document.querySelector('iframe');
-    window.addEventListener('message', function(event) {
-      if (event.data === 'form-submitted') {
-        iframe.style.display = 'none';
-        document.getElementById('thankYouMessage').style.display = 'block';
-      }
-    });
-  </script>
 </body>
 </html>
