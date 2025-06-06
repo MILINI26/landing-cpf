@@ -1,128 +1,249 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vérifiez votre éligibilité CPF - Formation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Éligibilité CPF – Formations</title>
   <style>
-    /* ... Ton CSS est inchangé car il est bien structuré ... */
+    :root {
+      --primary: #003366;
+      --accent: #e30613;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --shadow: rgba(0,0,0,0.1);
+      --text: #222;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height:1.5;
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 { font-size: 2rem; }
+    .logos {
+      display: flex; justify-content: center;
+      gap:1.5rem; padding:1rem; background:#e3ebf8;
+      flex-wrap: wrap;
+    }
+    .logos img { height:60px; }
+    nav { text-align:center; background:#0055a5; padding:.8rem 0; }
+    nav a { color:#fff; font-weight:bold; text-decoration:none; }
+    .alerts {
+      margin:2rem auto; max-width: 900px;
+      color:red; font-weight:600;
+      text-align:center; line-height:1.4;
+    }
+    .formations {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+      gap:1.5rem;
+      max-width:1140px;
+      margin:2rem auto;
+      padding:0 1rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius:12px;
+      box-shadow:0 4px 12px var(--shadow);
+      overflow:hidden;
+      display:flex; flex-direction:column;
+      cursor:pointer;
+      transition:transform .2s;
+    }
+    .card:hover { transform:scale(1.03); }
+    .card img {
+      width:100%; height:160px; object-fit:cover;
+    }
+    .card-content {
+      padding:1rem; display:flex; flex-direction:column; flex:1;
+    }
+    .card-content h3 {
+      color:var(--primary);
+      margin-bottom:.5rem;
+    }
+    .card-content p { flex:1; color:#444; margin-bottom:.8rem;}
+    .card-content .btn {
+      background:var(--accent);
+      color:#fff;
+      text-align:center;
+      padding:.6rem;
+      border-radius:6px;
+      font-weight:bold;
+    }
+    .card-content .btn:hover { background:#b2040f; }
+    .form-section {
+      max-width:600px;
+      background:#fff;
+      margin:3rem auto;
+      padding:2rem;
+      border-radius:12px;
+      box-shadow:0 5px 24px var(--shadow);
+    }
+    .form-section h2 {
+      text-align:center;
+      color:var(--primary);
+      margin-bottom:1.5rem;
+    }
+    label {
+      display:block;
+      margin-bottom:.4rem;
+      font-weight:600;
+    }
+    input, select {
+      width:100%;
+      padding:.8rem;
+      margin-bottom:1.2rem;
+      border:1.5px solid #ccc;
+      border-radius:6px;
+    }
+    button {
+      width:100%;
+      background:var(--accent);
+      color:#fff;
+      font-weight:bold;
+      padding:1rem;
+      border:none;
+      border-radius:10px;
+      font-size:1.1rem;
+      cursor:pointer;
+    }
+    button:hover { background:#b2040f; }
+    #merci {
+      display:none;
+      text-align:center;
+      margin-top:2rem;
+      font-weight:bold;
+      color:green;
+      font-size:1.2rem;
+    }
+    @media(max-width:600px) {
+      .formations { grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Vérifiez votre éligibilité aux formations CPF</h1>
+  <h1>Éligibilité CPF – Formations</h1>
 </header>
 
-<div class="logos" aria-label="Logos officiels partenaires">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Logo_CPF.svg" alt="Logo CPF" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Logo_Qualiopi.svg/512px-Logo_Qualiopi.svg.png" alt="Logo Qualiopi" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Embl%C3%A8me_de_la_R%C3%A9publique_fran%C3%A7aise_%28coq_gaulois%29.svg" alt="Logo République Française" />
+<div class="logos">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Logo_CPF.svg" alt="Logo CPF">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Logo_Qualiopi.svg/512px-Logo_Qualiopi.svg.png" alt="Logo Qualiopi">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Embl%C3%A8me_de_la_R%C3%A9publique_fran%C3%A7aise_%28coq_gaulois%29.svg" alt="Logo République Française">
 </div>
 
-<nav>
-  <a href="#formulaire">Vérifier votre éligibilité</a>
-</nav>
+<nav><a href="#formulaire">Je veux vérifier mon éligibilité</a></nav>
 
-<div class="warnings" role="alert" aria-live="assertive">
-  <p>⚠️ Nous ne proposons plus le financement du CACES ou du Permis de Conduire.</p>
-  <p>⚠️ Les étudiants ne sont pas éligibles au financement des formations par le CPF.</p>
-  <p>⚠️ Nous proposons UNIQUEMENT les formations qui se trouvent dans le formulaire ci-dessous.</p>
+<div class="alerts">
+  <p>⚠️ Remarque : Nous ne finançons pas le CACES ni le Permis.</p>
+  <p>⚠️ Les étudiants ne sont pas éligibles au CPF.</p>
+  <p>⚠️ Seules les formations ci-dessous sont disponibles.</p>
 </div>
 
-<section class="formations" aria-label="Liste des formations">
-  <!-- Les cartes formation seront insérées par JavaScript -->
-</section>
+<section class="formations" id="liste-formations"></section>
 
-<section id="formulaire" aria-label="Formulaire d'éligibilité CPF">
+<section class="form-section" id="formulaire">
   <h2>Formulaire d’éligibilité</h2>
-  <form id="eligibiliteForm">
-    <label for="nom">Nom complet *</label>
-    <input type="text" id="nom" name="nom" required />
+  <form id="formCPF">
+    <label for="nom">Nom *</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="prenom">Prénom *</label>
+    <input type="text" id="prenom" name="prenom" required>
 
     <label for="email">Email *</label>
-    <input type="email" id="email" name="email" required />
+    <input type="email" id="email" name="email" required>
 
     <label for="telephone">Téléphone *</label>
-    <input type="tel" id="telephone" name="telephone" required />
+    <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78">
 
-    <label for="formation">Formation souhaitée *</label>
+    <label for="formation">Formation *</label>
     <select id="formation" name="formation" required>
-      <option value="" disabled selected>-- Choisissez une formation --</option>
+      <option value="" disabled selected>-- Sélectionnez --</option>
     </select>
 
     <button type="submit">Envoyer ma demande</button>
   </form>
-  <div id="thankYouMessage" role="status" aria-live="polite" tabindex="-1" style="display: none;">
-    Merci pour votre demande !<br />
-    Ne soumettez pas une nouvelle demande.<br />
-    Vous serez recontacté rapidement et recevrez le code de suivi AR26.
+  <div id="merci">
+    🎉 Merci ! Votre demande a été reçue.<br>
+    Vous recevrez bientôt un code de suivi (AR26).
   </div>
 </section>
 
 <script>
-  const formations = [/* ... tableau formations (inchangé) ... */];
+  const formations = [
+    { titre: "Anglais", desc: "Améliorez votre anglais professionnel.", img: "https://cdn.pixabay.com/photo/2016/02/19/11/53/english-1209649_960_720.jpg" },
+    { titre: "Espagnol", desc: "Parfait pour voyager et communiquer.", img: "https://cdn.pixabay.com/photo/2017/01/20/00/30/flags-1993661_960_720.jpg" },
+    { titre: "Italien", desc: "Maîtrisez l’italien avec fluidité.", img: "https://cdn.pixabay.com/photo/2018/01/29/09/48/italy-3116755_960_720.jpg" },
+    { titre: "Allemand", desc: "Langue de l’emploi en Europe.", img: "https://cdn.pixabay.com/photo/2014/04/03/10/16/germany-310492_960_720.png" },
+    { titre: "Excel", desc: "Devenez un expert des tableaux Excel.", img: "https://cdn.pixabay.com/photo/2017/06/09/09/14/excel-2389217_960_720.jpg" },
+    { titre: "Word", desc: "Maîtrisez la création de documents avancés.", img: "https://cdn.pixabay.com/photo/2015/12/08/00/28/microsoft-1080600_960_720.jpg" },
+    { titre: "PowerPoint", desc: "Créez des présentations professionnelles.", img: "https://cdn.pixabay.com/photo/2016/11/29/02/30/presentation-1869711_960_720.jpg" },
+    { titre: "WordPress", desc: "Créez et gérez un site web facilement.", img: "https://cdn.pixabay.com/photo/2015/03/26/09/40/wordpress-690438_960_720.jpg" },
+    { titre: "Photoshop", desc: "Retouchez et créez des images percutantes.", img: "https://cdn.pixabay.com/photo/2016/03/27/07/08/photoshop-1280537_960_720.jpg" },
+    { titre: "Illustrator", desc: "Créez des visuels vectoriels professionnels.", img: "https://cdn.pixabay.com/photo/2015/09/14/16/36/illustrator-938071_960_720.jpg" },
+    { titre: "IA (intelligence artificielle)", desc: "Comprendre l’IA et ses applications.", img: "https://cdn.pixabay.com/photo/2018/02/15/13/23/artificial-intelligence-3158251_960_720.jpg" },
+    { titre: "Portugais", desc: "Langue du Portugal et Brésil.", img: "https://cdn.pixabay.com/photo/2015/04/10/00/41/brazil-715135_960_720.jpg" },
+    { titre: "Technicien administratif", desc: "Poste complet en secrétariat administratif.", img: "https://cdn.pixabay.com/photo/2017/08/10/07/30/business-2616284_960_720.jpg" },
+    { titre: "Couture et mode", desc: "Apprenez les bases de la couture créative.", img: "https://cdn.pixabay.com/photo/2017/08/07/20/35/sewing-2603071_960_720.jpg" },
+    { titre: "Bilan de compétence", desc: "Analysez et renforcez votre projet professionnel.", img: "https://cdn.pixabay.com/photo/2017/05/10/20/28/business-2309518_960_720.jpg" },
+    { titre: "Pâtisserie", desc: "Maîtrisez les techniques de pâtisserie.", img: "https://cdn.pixabay.com/photo/2017/05/08/13/26/cake-2305192_960_720.jpg" },
+    { titre: "Petite enfance", desc: "Pour travailler auprès des enfants.", img: "https://cdn.pixabay.com/photo/2016/01/19/17/39/child-1149032_960_720.jpg" }
+  ];
 
-  const container = document.querySelector('.formations');
-  const selectFormation = document.querySelector('#formation');
+  const liste = document.getElementById('liste-formations');
+  const select = document.getElementById('formation');
 
-  formations.forEach(f => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.tabIndex = 0;
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-label', `Vérifier l'éligibilité pour la formation ${f.titre}`);
-    card.innerHTML = `
-      <img src="${f.img}" alt="Image représentant la formation ${f.titre}" />
+  for (let f of formations) {
+    // cartes
+    let div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `
+      <img src="${f.img}" alt="${f.titre}">
       <div class="card-content">
         <h3>${f.titre}</h3>
         <p>${f.desc}</p>
-        <div class="btn-eligibilite" tabindex="0" role="button">Vérifier mon éligibilité</div>
+        <div class="btn">Sélectionner</div>
       </div>
     `;
-    container.appendChild(card);
-
-    card.querySelector('.btn-eligibilite').addEventListener('click', () => scrollToForm(f.titre));
-    card.addEventListener('click', () => scrollToForm(f.titre));
-    card.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') scrollToForm(f.titre);
-    });
-
-    const option = document.createElement('option');
-    option.value = f.titre;
-    option.textContent = f.titre;
-    selectFormation.appendChild(option);
-  });
-
-  function scrollToForm(formation) {
-    selectFormation.value = formation;
-    document.getElementById("formulaire").scrollIntoView({ behavior: 'smooth' });
-    selectFormation.focus();
+    div.onclick = () => {
+      select.value = f.titre;
+      document.getElementById('formulaire').scrollIntoView({behavior:'smooth'});
+    };
+    liste.appendChild(div);
+    // options
+    let opt = document.createElement('option');
+    opt.value = f.titre;
+    opt.textContent = f.titre;
+    select.appendChild(opt);
   }
 
-  const form = document.getElementById("eligibiliteForm");
-  const message = document.getElementById("thankYouMessage");
-
-  form.addEventListener("submit", async (e) => {
+  document.getElementById('formCPF').onsubmit = async function(e) {
     e.preventDefault();
-
-    const data = new FormData(form);
-    const payload = Object.fromEntries(data.entries());
+    const data = new FormData(e.target);
+    const obj = Object.fromEntries(data.entries());
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbyvFDCrylG0OTBK98FBVBhySdHww-vW9X0KpOwtv3S2lwWc8yScqFeLSUbCZu69KDZr/exec", {
-        method: "POST",
-        body: new URLSearchParams(payload) // ✔ compatible no-cors
+      await fetch('https://script.google.com/macros/s/AKfycbyvFDCrylG0OTBK98FBVBhySdHww-vW9X0KpOwtv3S2lwWc8yScqFeLSUbCZu69KDZr/exec', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(obj)
       });
-
-      form.reset();
-      form.style.display = "none";
-      message.style.display = "block";
-      message.focus();
-    } catch (err) {
-      alert("Erreur lors de l'envoi. Veuillez réessayer.");
+      // feedback
+      this.reset();
+      this.style.display = 'none';
+      document.getElementById('merci').style.display = 'block';
+    } catch {
+      alert('Erreur server. Réessayez.');
     }
-  });
+  };
 </script>
 
 </body>
