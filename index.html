@@ -103,4 +103,54 @@
     { titre: "WordPress", desc: "Créez votre site pro.", img: "https://cdn.pixabay.com/photo/2015/03/26/09/40/wordpress-690438_960_720.jpg" },
     { titre: "Word", desc: "Maîtrisez le traitement de texte.", img: "https://cdn.pixabay.com/photo/2015/12/08/00/28/microsoft-1080600_960_720.jpg" },
     { titre: "Excel", desc: "Analysez vos données efficacement.", img: "https://cdn.pixabay.com/photo/2017/06/09/09/14/excel-2389217_960_720.jpg" },
-    { titre: "PowerPoint", desc: "Prése
+    { titre: "PowerPoint", desc: "Présentations impactantes.", img: "https://cdn.pixabay.com/photo/2016/11/29/02/30/presentation-1869711_960_720.jpg" },
+    { titre: "Outils collaboratifs", desc: "Travailler efficacement en équipe.", img: "https://cdn.pixabay.com/photo/2016/11/21/15/47/google-1840466_960_720.jpg" },
+    { titre: "Intelligence Artificielle", desc: "Initiez-vous à l'IA.", img: "https://cdn.pixabay.com/photo/2018/02/15/13/23/artificial-intelligence-3158251_960_720.jpg" }
+  ];
+
+  const grid = document.getElementById('formations');
+  const select = document.getElementById('formation');
+
+  formations.forEach(f => {
+    const card = document.createElement('div');
+    card.className = 'formation-card';
+    card.innerHTML = `<img src="${f.img}" alt="${f.titre}" />
+                      <h3>${f.titre}</h3>
+                      <p>${f.desc}</p>`;
+    grid.appendChild(card);
+
+    const option = document.createElement('option');
+    option.value = f.titre;
+    option.textContent = f.titre;
+    select.appendChild(option);
+  });
+
+  document.getElementById('cpfForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = {
+      prenom: document.getElementById('prenom').value,
+      nom: document.getElementById('nom').value,
+      email: document.getElementById('email').value,
+      telephone: document.getElementById('telephone').value,
+      statut: document.getElementById('statut').value,
+      objectif: document.getElementById('objectif').value,
+      formation: document.getElementById('formation').value
+    };
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbyPXA-SHsztdadlDlqY9tKCOgAqiTlX0TDsR_buW8Q/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      this.reset();
+      document.getElementById('thankYouMessage').style.display = 'block';
+    } catch (err) {
+      alert("Erreur serveur. Veuillez réessayer plus tard.");
+    }
+  });
+</script>
+
+</body>
+</html>
