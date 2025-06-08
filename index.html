@@ -31,15 +31,17 @@
 </header>
 
 <div class="intro">
-  <p>Le Compte Personnel de Formation (CPF) permet à toute personne active d'acquérir des droits à la formation tout au long de sa vie professionnelle. Vous pouvez les utiliser pour financer des formations qualifiantes, certifiantes ou diplômantes.</p>
-  <p>Nous vous accompagnons dans votre projet : langues, bureautique, numérique, bilan de compétences, petite enfance, couture, pâtisserie, et bien plus.</p>
+  <p>Le Compte Personnel de Formation (CPF) permet à toute personne active d'acquérir des droits à la formation. Utilisez-les pour des formations certifiantes et financées.</p>
 </div>
 
 <div class="formations-grid" id="formations"></div>
 
 <form id="cpfForm">
   <h2>Formulaire de demande CPF</h2>
-  <label for="nom">Nom complet *</label>
+  <label for="prenom">Prénom *</label>
+  <input type="text" id="prenom" name="prenom" required>
+
+  <label for="nom">Nom *</label>
   <input type="text" id="nom" name="nom" required>
 
   <label for="email">Email *</label>
@@ -47,6 +49,19 @@
 
   <label for="telephone">Téléphone *</label>
   <input type="tel" id="telephone" name="telephone" required>
+
+  <label for="statut">Statut *</label>
+  <select id="statut" name="statut" required>
+    <option value="Public">Salarié secteur public</option>
+    <option value="Privé">Salarié secteur privé</option>
+    <option value="Demandeur d'emploi">Demandeur d'emploi</option>
+  </select>
+
+  <label for="objectif">Objectif de la formation *</label>
+  <select id="objectif" name="objectif" required>
+    <option value="Personnel">Personnel</option>
+    <option value="Professionnel">Professionnel</option>
+  </select>
 
   <label for="formation">Formation souhaitée *</label>
   <select id="formation" name="formation" required></select>
@@ -56,7 +71,7 @@
 </form>
 
 <footer>
-  <p>&copy; 2025 Centre de Formation Agréé | CPF, Qualiopi, Datadock | Contact : contact@formation-pro.fr</p>
+  <p>&copy; 2025 Organisme de Formation | CPF - Qualiopi - Datadock</p>
 </footer>
 
 <script>
@@ -65,19 +80,13 @@
     { titre: "Espagnol", desc: "Apprenez l'espagnol pour voyager.", img: "https://cdn.pixabay.com/photo/2017/01/20/00/30/flags-1993661_960_720.jpg" },
     { titre: "Italien", desc: "Langue de culture et d'affaires.", img: "https://cdn.pixabay.com/photo/2018/01/29/09/48/italy-3116755_960_720.jpg" },
     { titre: "Allemand", desc: "Pour élargir vos opportunités pro.", img: "https://cdn.pixabay.com/photo/2014/04/03/10/16/germany-310492_960_720.png" },
-    { titre: "Excel", desc: "Devenez expert en Excel.", img: "https://cdn.pixabay.com/photo/2017/06/09/09/14/excel-2389217_960_720.jpg" },
-    { titre: "Word", desc: "Documents professionnels maîtrisés.", img: "https://cdn.pixabay.com/photo/2015/12/08/00/28/microsoft-1080600_960_720.jpg" },
-    { titre: "PowerPoint", desc: "Présentations impactantes.", img: "https://cdn.pixabay.com/photo/2016/11/29/02/30/presentation-1869711_960_720.jpg" },
-    { titre: "Wordpress", desc: "Créez votre propre site web.", img: "https://cdn.pixabay.com/photo/2015/03/26/09/40/wordpress-690438_960_720.jpg" },
-    { titre: "Photoshop", desc: "Bases de la création graphique.", img: "https://cdn.pixabay.com/photo/2016/03/27/07/08/photoshop-1280537_960_720.jpg" },
-    { titre: "Illustrator", desc: "Illustrations vectorielles.", img: "https://cdn.pixabay.com/photo/2015/09/14/16/36/illustrator-938071_960_720.jpg" },
-    { titre: "IA (intelligence artificielle)", desc: "Découverte de l'IA.", img: "https://cdn.pixabay.com/photo/2018/02/15/13/23/artificial-intelligence-3158251_960_720.jpg" },
     { titre: "Portugais", desc: "Langue utile pour le voyage.", img: "https://cdn.pixabay.com/photo/2015/04/10/00/41/brazil-715135_960_720.jpg" },
-    { titre: "Technicien administratif", desc: "Compétences en secrétariat.", img: "https://cdn.pixabay.com/photo/2017/08/10/07/30/business-2616284_960_720.jpg" },
-    { titre: "Couture et mode", desc: "Apprenez la création de vêtements.", img: "https://cdn.pixabay.com/photo/2017/08/07/20/35/sewing-2603071_960_720.jpg" },
-    { titre: "Bilan de compétence", desc: "Faites le point sur votre carrière.", img: "https://cdn.pixabay.com/photo/2017/05/10/20/28/business-2309518_960_720.jpg" },
-    { titre: "Pâtisserie", desc: "Techniques de la pâtisserie française.", img: "https://cdn.pixabay.com/photo/2017/05/08/13/26/cake-2305192_960_720.jpg" },
-    { titre: "Petite enfance", desc: "Travailler avec les enfants.", img: "https://cdn.pixabay.com/photo/2016/01/19/17/39/child-1149032_960_720.jpg" }
+    { titre: "WordPress", desc: "Créez votre site pro.", img: "https://cdn.pixabay.com/photo/2015/03/26/09/40/wordpress-690438_960_720.jpg" },
+    { titre: "Word", desc: "Maîtrisez le traitement de texte.", img: "https://cdn.pixabay.com/photo/2015/12/08/00/28/microsoft-1080600_960_720.jpg" },
+    { titre: "Excel", desc: "Analysez vos données efficacement.", img: "https://cdn.pixabay.com/photo/2017/06/09/09/14/excel-2389217_960_720.jpg" },
+    { titre: "PowerPoint", desc: "Présentations impactantes.", img: "https://cdn.pixabay.com/photo/2016/11/29/02/30/presentation-1869711_960_720.jpg" },
+    { titre: "Outils collaboratifs", desc: "Travailler efficacement en équipe.", img: "https://cdn.pixabay.com/photo/2016/11/21/15/47/google-1840466_960_720.jpg" },
+    { titre: "Intelligence Artificielle", desc: "Initiez-vous à l'IA.", img: "https://cdn.pixabay.com/photo/2018/02/15/13/23/artificial-intelligence-3158251_960_720.jpg" }
   ];
 
   const grid = document.getElementById('formations');
@@ -86,25 +95,26 @@
   formations.forEach(f => {
     const card = document.createElement('div');
     card.className = 'formation-card';
-    card.innerHTML = `
-      <img src="${f.img}" alt="${f.titre}" />
-      <h3>${f.titre}</h3>
-      <p>${f.desc}</p>
-    `;
+    card.innerHTML = `<img src="${f.img}" alt="${f.titre}" />
+                      <h3>${f.titre}</h3>
+                      <p>${f.desc}</p>`;
     grid.appendChild(card);
 
-    const opt = document.createElement('option');
-    opt.value = f.titre;
-    opt.textContent = f.titre;
-    select.appendChild(opt);
+    const option = document.createElement('option');
+    option.value = f.titre;
+    option.textContent = f.titre;
+    select.appendChild(option);
   });
 
-  document.getElementById('cpfForm').addEventListener('submit', async function (e) {
+  document.getElementById('cpfForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const data = {
+      prenom: document.getElementById('prenom').value,
       nom: document.getElementById('nom').value,
       email: document.getElementById('email').value,
       telephone: document.getElementById('telephone').value,
+      statut: document.getElementById('statut').value,
+      objectif: document.getElementById('objectif').value,
       formation: document.getElementById('formation').value
     };
 
@@ -115,10 +125,9 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
-
       this.reset();
       document.getElementById('thankYouMessage').style.display = 'block';
-    } catch (error) {
+    } catch (err) {
       alert("Erreur serveur. Veuillez réessayer plus tard.");
     }
   });
