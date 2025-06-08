@@ -3,154 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CPF - Vérifiez votre éligibilité</title>
+  <title>Formations CPF Éligibles</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f8; color: #333; }
-    header { background: #003366; color: #fff; padding: 30px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2rem; }
-    .intro, .info, .quote, .reminder { padding: 20px; max-width: 900px; margin: auto; line-height: 1.6; }
-    .intro p, .info p, .reminder p { font-size: 1rem; }
-    .quote { background-color: #eaf3ff; border-left: 6px solid #003366; margin: 20px auto; font-style: italic; color: #003366; }
-    .formations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: auto; }
-    .formation-card { background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .formation-card img { width: 100%; border-radius: 6px; height: 150px; object-fit: cover; }
-    .formation-card h3 { margin-top: 12px; color: #003366; }
-    .formation-card p { font-size: 0.95rem; }
-    form { background: #fff; padding: 30px; max-width: 600px; margin: 40px auto; border-radius: 10px; box-shadow: 0 3px 20px rgba(0,0,0,0.1); }
-    form h2 { text-align: center; color: #003366; margin-bottom: 20px; }
-    label { font-weight: 600; display: block; margin-top: 15px; }
-    input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; }
-    button { margin-top: 20px; background: #e30613; color: white; padding: 14px; width: 100%; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
-    button:hover { background: #c00511; }
-    .thank-you { display: none; text-align: center; color: green; font-weight: bold; padding: 20px; }
-    footer { background: #003366; color: white; padding: 20px; text-align: center; margin-top: 50px; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #004080;
+      color: white;
+    }
+    header img, footer img {
+      max-width: 90%;
+      height: auto;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .formation {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .formation img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #004080;
+    }
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #004080;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    blockquote {
+      font-style: italic;
+      margin: 30px 0;
+      color: #555;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <img src="/mnt/data/Capture d’écran 2025-06-08 à 14.20.40.png" alt="Bannière CPF">
+    <h1>Formations Éligibles au CPF</h1>
+  </header>
 
-<header>
-  <h1>Mon Compte Formation - Vérifiez votre éligibilité</h1>
-</header>
+  <div class="container">
+    <p>Profitez de vos droits à la formation avec le Compte Personnel de Formation (CPF). Que vous soyez salarié, indépendant ou en reconversion, nos formations sont prises en charge partiellement ou totalement. Depuis 2024, un reste à charge obligatoire de <strong>100 euros</strong> est à prévoir.</p>
 
-<div class="intro">
-  <p>Le Compte Personnel de Formation (CPF) vous permet de financer une formation professionnelle. Selon votre statut, votre projet, et le type de formation souhaitée, vous pouvez bénéficier d'une prise en charge partielle ou totale.</p>
-</div>
+    <blockquote>
+      "Investir dans la connaissance, c’est le seul placement qui paie toujours le meilleur intérêt." – Benjamin Franklin
+    </blockquote>
 
-<div class="info">
-  <img src="https://cdn.pixabay.com/photo/2017/09/04/18/41/laptop-2718827_1280.jpg" alt="CPF formation" style="width:100%; border-radius:8px; margin-bottom:20px;">
-  <p>Depuis 2023, une participation financière minimale de 100€ est obligatoire pour toute formation financée par le CPF. Cette somme est appelée le <strong>reste à charge</strong>, quel que soit votre solde CPF. Certaines exceptions s'appliquent pour les demandeurs d'emploi ou les personnes en situation de handicap.</p>
-</div>
+    <section class="formation">
+      <h2>Formation : Intégrer l’Intelligence Artificielle dans le Cycle de Vente</h2>
+      <img src="https://www.captain-data.com/hubfs/blog/openai-ai-for-sales.jpg" alt="IA et ventes">
+      <p>Apprenez à maîtriser les outils d'intelligence artificielle conversationnelle (comme ChatGPT) pour automatiser les tâches de prospection, renforcer la relation client et améliorer la conversion commerciale.</p>
+      <ul>
+        <li>Durée : 25h</li>
+        <li>Public : Commerciaux, freelances, responsables marketing</li>
+        <li>Objectif : Augmenter vos ventes grâce à l’IA</li>
+      </ul>
+    </section>
 
-<div class="quote">
-  <p>"Investir en soi est la meilleure décision que l'on puisse prendre. Grâce au CPF, vous pouvez vous former dans le domaine de votre choix avec une prise en charge facilitée."</p>
-</div>
+    <!-- Ajoute ici d'autres sections .formation si nécessaire -->
 
-<div class="formations-grid" id="formations"></div>
+    <h2>Demande d'inscription CPF</h2>
+    <form action="https://script.google.com/macros/s/AKfycbyPXA-SHsztdadlDlqY9tKCOgAqiTlX0TDsR_buW8Q/exec" method="POST">
+      <label>Nom</label>
+      <input type="text" name="nom" required>
 
-<form id="cpfForm">
-  <h2>Formulaire de demande CPF</h2>
-  <label for="prenom">Prénom *</label>
-  <input type="text" id="prenom" name="prenom" required>
+      <label>Prénom</label>
+      <input type="text" name="prenom" required>
 
-  <label for="nom">Nom *</label>
-  <input type="text" id="nom" name="nom" required>
+      <label>Adresse email</label>
+      <input type="email" name="email" required>
 
-  <label for="email">Email *</label>
-  <input type="email" id="email" name="email" required>
+      <label>Formation souhaitée</label>
+      <select name="formation">
+        <option>Intégrer l’IA dans le cycle de vente</option>
+        <option>Excel - Maîtrise Pro</option>
+        <option>Anglais - Business & Voyage</option>
+        <option>Création d’entreprise</option>
+        <option>Bilan de compétences</option>
+      </select>
 
-  <label for="telephone">Téléphone *</label>
-  <input type="tel" id="telephone" name="telephone" required>
+      <label>Motivation</label>
+      <select name="motivation">
+        <option>Projet professionnel</option>
+        <option>Développement personnel</option>
+      </select>
 
-  <label for="statut">Statut *</label>
-  <select id="statut" name="statut" required>
-    <option value="Public">Salarié secteur public</option>
-    <option value="Privé">Salarié secteur privé</option>
-    <option value="Demandeur d'emploi">Demandeur d'emploi</option>
-  </select>
+      <p><strong>⚠️ À noter :</strong> Le reste à charge obligatoire est de 100€, mis en place depuis avril 2024 pour toute demande CPF.</p>
+      <p><strong>Un conseiller vous contactera sous 24h</strong> afin de finaliser votre demande, valider votre éligibilité CPF, et vous transmettre votre <strong>code de sécurité personnel : 0305</strong>.</p>
 
-  <label for="objectif">Objectif de la formation *</label>
-  <select id="objectif" name="objectif" required>
-    <option value="Personnel">Personnel</option>
-    <option value="Professionnel">Professionnel</option>
-  </select>
+      <button type="submit">Soumettre ma demande</button>
+    </form>
+  </div>
 
-  <label for="formation">Formation souhaitée *</label>
-  <select id="formation" name="formation" required></select>
-
-  <p style="margin-top:20px; font-size: 0.95rem; color: #555;">
-    <strong>Note :</strong> Un conseiller vous contactera afin de faire un point sur votre demande et vous conseiller au mieux. Il vous communiquera également <strong>votre code de sécurité personnel : <span style="color:#e30613">1008</span></strong>.
-  </p>
-
-  <button type="submit">Envoyer ma demande</button>
-  <div class="thank-you" id="thankYouMessage">Merci pour votre demande ! Vous serez contacté très rapidement.</div>
-</form>
-
-<div class="reminder">
-  <p>📌 <strong>Rappel :</strong> Un reste à charge obligatoire de 100€ est requis depuis avril 2023 pour toute inscription à une formation via le CPF.</p>
-</div>
-
-<footer>
-  <p>&copy; 2025 Organisme de Formation | CPF - Qualiopi - Datadock</p>
-</footer>
-
-<script>
-  const formations = [
-    { titre: "Anglais", desc: "Améliorez votre anglais pro.", img: "https://cdn.pixabay.com/photo/2016/02/19/11/53/english-1209649_960_720.jpg" },
-    { titre: "Espagnol", desc: "Apprenez l'espagnol pour voyager.", img: "https://cdn.pixabay.com/photo/2017/01/20/00/30/flags-1993661_960_720.jpg" },
-    { titre: "Italien", desc: "Langue de culture et d'affaires.", img: "https://cdn.pixabay.com/photo/2018/01/29/09/48/italy-3116755_960_720.jpg" },
-    { titre: "Allemand", desc: "Pour élargir vos opportunités pro.", img: "https://cdn.pixabay.com/photo/2014/04/03/10/16/germany-310492_960_720.png" },
-    { titre: "Portugais", desc: "Langue utile pour le voyage.", img: "https://cdn.pixabay.com/photo/2015/04/10/00/41/brazil-715135_960_720.jpg" },
-    { titre: "WordPress", desc: "Créez votre site pro.", img: "https://cdn.pixabay.com/photo/2015/03/26/09/40/wordpress-690438_960_720.jpg" },
-    { titre: "Word", desc: "Maîtrisez le traitement de texte.", img: "https://cdn.pixabay.com/photo/2015/12/08/00/28/microsoft-1080600_960_720.jpg" },
-    { titre: "Excel", desc: "Analysez vos données efficacement.", img: "https://cdn.pixabay.com/photo/2017/06/09/09/14/excel-2389217_960_720.jpg" },
-    { titre: "PowerPoint", desc: "Présentations impactantes.", img: "https://cdn.pixabay.com/photo/2016/11/29/02/30/presentation-1869711_960_720.jpg" },
-    { titre: "Outils collaboratifs", desc: "Travailler efficacement en équipe.", img: "https://cdn.pixabay.com/photo/2016/11/21/15/47/google-1840466_960_720.jpg" },
-    { titre: "Intelligence Artificielle", desc: "Initiez-vous à l'IA.", img: "https://cdn.pixabay.com/photo/2018/02/15/13/23/artificial-intelligence-3158251_960_720.jpg" }
-  ];
-
-  const grid = document.getElementById('formations');
-  const select = document.getElementById('formation');
-
-  formations.forEach(f => {
-    const card = document.createElement('div');
-    card.className = 'formation-card';
-    card.innerHTML = `<img src="${f.img}" alt="${f.titre}" />
-                      <h3>${f.titre}</h3>
-                      <p>${f.desc}</p>`;
-    grid.appendChild(card);
-
-    const option = document.createElement('option');
-    option.value = f.titre;
-    option.textContent = f.titre;
-    select.appendChild(option);
-  });
-
-  document.getElementById('cpfForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const data = {
-      prenom: document.getElementById('prenom').value,
-      nom: document.getElementById('nom').value,
-      email: document.getElementById('email').value,
-      telephone: document.getElementById('telephone').value,
-      statut: document.getElementById('statut').value,
-      objectif: document.getElementById('objectif').value,
-      formation: document.getElementById('formation').value
-    };
-
-    try {
-      await fetch("https://script.google.com/macros/s/AKfycbyPXA-SHsztdadlDlqY9tKCOgAqiTlX0TDsR_buW8Q/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-      this.reset();
-      document.getElementById('thankYouMessage').style.display = 'block';
-    } catch (err) {
-      alert("Erreur serveur. Veuillez réessayer plus tard.");
-    }
-  });
-</script>
-
+  <footer>
+    <img src="/mnt/data/Capture d’écran 2025-06-08 à 14.21.15.png" alt="Footer Logo CPF">
+    <p>© 2025 - Vos droits à la formation. Tous droits réservés.</p>
+  </footer>
 </body>
 </html>
