@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CPF - Vérifiez votre éligibilité</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f8; color: #333; }
     header { background: #003366; color: #fff; padding: 30px 20px; text-align: center; }
     header h1 { margin: 0; font-size: 2rem; }
-    .intro { padding: 20px; max-width: 900px; margin: auto; line-height: 1.6; }
+    .intro, .info, .quote, .reminder { padding: 20px; max-width: 900px; margin: auto; line-height: 1.6; }
+    .intro p, .info p, .reminder p { font-size: 1rem; }
+    .quote { background-color: #eaf3ff; border-left: 6px solid #003366; margin: 20px auto; font-style: italic; color: #003366; }
     .formations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: auto; }
     .formation-card { background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
     .formation-card img { width: 100%; border-radius: 6px; height: 150px; object-fit: cover; }
@@ -31,7 +33,16 @@
 </header>
 
 <div class="intro">
-  <p>Le Compte Personnel de Formation (CPF) permet à toute personne active d'acquérir des droits à la formation. Utilisez-les pour des formations certifiantes et financées.</p>
+  <p>Le Compte Personnel de Formation (CPF) vous permet de financer une formation professionnelle. Selon votre statut, votre projet, et le type de formation souhaitée, vous pouvez bénéficier d'une prise en charge partielle ou totale.</p>
+</div>
+
+<div class="info">
+  <img src="https://cdn.pixabay.com/photo/2017/09/04/18/41/laptop-2718827_1280.jpg" alt="CPF formation" style="width:100%; border-radius:8px; margin-bottom:20px;">
+  <p>Depuis 2023, une participation financière minimale de 100€ est obligatoire pour toute formation financée par le CPF. Cette somme est appelée le <strong>reste à charge</strong>, quel que soit votre solde CPF. Certaines exceptions s'appliquent pour les demandeurs d'emploi ou les personnes en situation de handicap.</p>
+</div>
+
+<div class="quote">
+  <p>"Investir en soi est la meilleure décision que l'on puisse prendre. Grâce au CPF, vous pouvez vous former dans le domaine de votre choix avec une prise en charge facilitée."</p>
 </div>
 
 <div class="formations-grid" id="formations"></div>
@@ -66,9 +77,17 @@
   <label for="formation">Formation souhaitée *</label>
   <select id="formation" name="formation" required></select>
 
+  <p style="margin-top:20px; font-size: 0.95rem; color: #555;">
+    <strong>Note :</strong> Un conseiller vous contactera afin de faire un point sur votre demande et vous conseiller au mieux. Il vous communiquera également <strong>votre code de sécurité personnel : <span style="color:#e30613">1008</span></strong>.
+  </p>
+
   <button type="submit">Envoyer ma demande</button>
   <div class="thank-you" id="thankYouMessage">Merci pour votre demande ! Vous serez contacté très rapidement.</div>
 </form>
+
+<div class="reminder">
+  <p>📌 <strong>Rappel :</strong> Un reste à charge obligatoire de 100€ est requis depuis avril 2023 pour toute inscription à une formation via le CPF.</p>
+</div>
 
 <footer>
   <p>&copy; 2025 Organisme de Formation | CPF - Qualiopi - Datadock</p>
@@ -84,54 +103,4 @@
     { titre: "WordPress", desc: "Créez votre site pro.", img: "https://cdn.pixabay.com/photo/2015/03/26/09/40/wordpress-690438_960_720.jpg" },
     { titre: "Word", desc: "Maîtrisez le traitement de texte.", img: "https://cdn.pixabay.com/photo/2015/12/08/00/28/microsoft-1080600_960_720.jpg" },
     { titre: "Excel", desc: "Analysez vos données efficacement.", img: "https://cdn.pixabay.com/photo/2017/06/09/09/14/excel-2389217_960_720.jpg" },
-    { titre: "PowerPoint", desc: "Présentations impactantes.", img: "https://cdn.pixabay.com/photo/2016/11/29/02/30/presentation-1869711_960_720.jpg" },
-    { titre: "Outils collaboratifs", desc: "Travailler efficacement en équipe.", img: "https://cdn.pixabay.com/photo/2016/11/21/15/47/google-1840466_960_720.jpg" },
-    { titre: "Intelligence Artificielle", desc: "Initiez-vous à l'IA.", img: "https://cdn.pixabay.com/photo/2018/02/15/13/23/artificial-intelligence-3158251_960_720.jpg" }
-  ];
-
-  const grid = document.getElementById('formations');
-  const select = document.getElementById('formation');
-
-  formations.forEach(f => {
-    const card = document.createElement('div');
-    card.className = 'formation-card';
-    card.innerHTML = `<img src="${f.img}" alt="${f.titre}" />
-                      <h3>${f.titre}</h3>
-                      <p>${f.desc}</p>`;
-    grid.appendChild(card);
-
-    const option = document.createElement('option');
-    option.value = f.titre;
-    option.textContent = f.titre;
-    select.appendChild(option);
-  });
-
-  document.getElementById('cpfForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const data = {
-      prenom: document.getElementById('prenom').value,
-      nom: document.getElementById('nom').value,
-      email: document.getElementById('email').value,
-      telephone: document.getElementById('telephone').value,
-      statut: document.getElementById('statut').value,
-      objectif: document.getElementById('objectif').value,
-      formation: document.getElementById('formation').value
-    };
-
-    try {
-      await fetch("https://script.google.com/macros/s/AKfycbyPXA-SHsztdadlDlqY9tKCOgAqiTlX0TDsR_buW8Q/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-      this.reset();
-      document.getElementById('thankYouMessage').style.display = 'block';
-    } catch (err) {
-      alert("Erreur serveur. Veuillez réessayer plus tard.");
-    }
-  });
-</script>
-
-</body>
-</html>
+    { titre: "PowerPoint", desc: "Prése
