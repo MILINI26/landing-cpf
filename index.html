@@ -3,100 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formations CPF Éligibles</title>
+  <title>Boostez votre avenir avec nos Formations CPF</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0f4f8, #ffffff);
       margin: 0;
       padding: 0;
       color: #333;
     }
     header, footer {
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       background-color: #004080;
       color: white;
     }
     header img, footer img {
-      max-width: 90%;
+      max-width: 100%;
       height: auto;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       padding: 20px;
     }
     .formation {
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
     .formation img {
       max-width: 100%;
-      height: auto;
       border-radius: 8px;
+      margin-bottom: 15px;
     }
-    h1, h2 {
+    h1, h2, h3 {
       color: #004080;
     }
     form {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-top: 40px;
     }
-    input, select, textarea {
+    input, select, textarea, button {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 6px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      box-sizing: border-box;
     }
     button {
-      background-color: #004080;
+      background-color: #0071e3;
       color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+    .formation-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
     blockquote {
       font-style: italic;
+      color: #666;
       margin: 30px 0;
-      color: #555;
+      border-left: 4px solid #004080;
+      padding-left: 15px;
+    }
+    @media(max-width: 768px) {
+      .formation-list {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <img src="/mnt/data/Capture d’écran 2025-06-08 à 14.20.40.png" alt="Bannière CPF">
-    <h1>Formations Éligibles au CPF</h1>
+    <h1>Boostez votre avenir avec nos formations 100% éligibles au CPF</h1>
+    <p>Choisissez la formation qui correspond à vos ambitions</p>
   </header>
 
   <div class="container">
-    <p>Profitez de vos droits à la formation avec le Compte Personnel de Formation (CPF). Que vous soyez salarié, indépendant ou en reconversion, nos formations sont prises en charge partiellement ou totalement. Depuis 2024, un reste à charge obligatoire de <strong>100 euros</strong> est à prévoir.</p>
+    <p>Le Compte Personnel de Formation (CPF) vous permet de financer vos projets pro. Depuis avril 2024, un reste à charge obligatoire de <strong>100€</strong> s'applique. C’est le bon moment pour en profiter avant qu’il n’évolue encore !</p>
 
     <blockquote>
-      "Investir dans la connaissance, c’est le seul placement qui paie toujours le meilleur intérêt." – Benjamin Franklin
+      "La connaissance est un investissement durable. Faites le premier pas aujourd’hui."
     </blockquote>
 
-    <section class="formation">
-      <h2>Formation : Intégrer l’Intelligence Artificielle dans le Cycle de Vente</h2>
-      <img src="https://www.captain-data.com/hubfs/blog/openai-ai-for-sales.jpg" alt="IA et ventes">
-      <p>Apprenez à maîtriser les outils d'intelligence artificielle conversationnelle (comme ChatGPT) pour automatiser les tâches de prospection, renforcer la relation client et améliorer la conversion commerciale.</p>
-      <ul>
-        <li>Durée : 25h</li>
-        <li>Public : Commerciaux, freelances, responsables marketing</li>
-        <li>Objectif : Augmenter vos ventes grâce à l’IA</li>
-      </ul>
-    </section>
+    <div class="formation-list">
+      <section class="formation">
+        <h2>🚀 IA & Vente : Intégrer l’Intelligence Artificielle dans le Cycle Commercial</h2>
+        <img src="https://www.captain-data.com/hubfs/blog/openai-ai-for-sales.jpg" alt="IA et ventes">
+        <p>Utilisez ChatGPT et d’autres outils IA pour automatiser votre prospection, booster votre relation client, et vendre mieux, plus vite.</p>
+        <ul>
+          <li><strong>Durée :</strong> 25h</li>
+          <li><strong>Public :</strong> Commerciaux, indépendants, responsables marketing</li>
+          <li><strong>Objectif :</strong> Créer un vrai levier de vente avec l’IA</li>
+        </ul>
+      </section>
 
-    <!-- Ajoute ici d'autres sections .formation si nécessaire -->
+      <section class="formation">
+        <h2>📊 Excel Pro : Devenez opérationnel en 3 semaines</h2>
+        <img src="https://img.freepik.com/free-photo/top-view-excel-file-business-concept_23-2149311913.jpg" alt="Excel">
+        <p>De la maîtrise des bases à la création de tableaux dynamiques, apprenez à automatiser vos tâches et analyser vos données comme un pro.</p>
+        <ul>
+          <li><strong>Durée :</strong> 21h</li>
+          <li><strong>Public :</strong> Salariés, entrepreneurs, demandeurs d’emploi</li>
+          <li><strong>Objectif :</strong> Maîtriser Excel efficacement</li>
+        </ul>
+      </section>
 
-    <h2>Demande d'inscription CPF</h2>
+      <!-- Ajoutez ici d'autres blocs .formation si besoin -->
+    </div>
+
+    <h2>📩 Je vérifie mon éligibilité CPF</h2>
     <form action="https://script.google.com/macros/s/AKfycbyPXA-SHsztdadlDlqY9tKCOgAqiTlX0TDsR_buW8Q/exec" method="POST">
       <label>Nom</label>
       <input type="text" name="nom" required>
@@ -122,16 +153,15 @@
         <option>Développement personnel</option>
       </select>
 
-      <p><strong>⚠️ À noter :</strong> Le reste à charge obligatoire est de 100€, mis en place depuis avril 2024 pour toute demande CPF.</p>
-      <p><strong>Un conseiller vous contactera sous 24h</strong> afin de finaliser votre demande, valider votre éligibilité CPF, et vous transmettre votre <strong>code de sécurité personnel : 0305</strong>.</p>
+      <p><strong>⚠️ Important :</strong> Une participation de 100€ est obligatoire depuis avril 2024. Vous serez contacté(e) sous 24h pour valider votre éligibilité et recevoir votre code personnel : <strong>0305</strong>.</p>
 
-      <button type="submit">Soumettre ma demande</button>
+      <button type="submit">📞 Être rappelé(e) par un conseiller</button>
     </form>
   </div>
 
   <footer>
-    <img src="/mnt/data/Capture d’écran 2025-06-08 à 14.21.15.png" alt="Footer Logo CPF">
-    <p>© 2025 - Vos droits à la formation. Tous droits réservés.</p>
+    <img src="/mnt/data/Capture d’écran 2025-06-08 à 14.21.15.png" alt="Logo CPF">
+    <p>© 2025 - Centre de formations certifiées CPF. Tous droits réservés.</p>
   </footer>
 </body>
 </html>
