@@ -1,238 +1,204 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formations CPF 2025 | Vérifiez votre éligibilité</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPF : Formations certifiantes 100% finançables</title>
+  <meta name="description" content="Formations certifiantes CPF (anglais, espagnol, marketing digital, IA, etc.). Vérifiez votre éligibilité. Accompagnement complet, zéro reste à charge possible.*">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #f2f6ff, #ffffff);
+      margin: 0;
+      padding: 0;
+      background: #f9fafc;
       color: #333;
     }
-
     header, footer {
-      background-color: #003366;
+      background: #003366;
       color: white;
       text-align: center;
-      padding: 30px 20px;
-    }
-
-    header img, footer img {
-      max-width: 140px;
-      margin: 10px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-
-    h1, h2, h3 {
-      color: #003366;
-    }
-
-    .formation-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-bottom: 50px;
-    }
-
-    .formation {
-      background-color: white;
-      border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      text-align: center;
     }
-
-    .formation img {
-      width: 100%;
-      max-height: 160px;
-      object-fit: contain;
-      margin-bottom: 15px;
+    header img {
+      height: 50px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.05);
+    }
+    .intro {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+    .formations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .formation-card {
+      width: 280px;
+      background: #eef3fa;
+      padding: 20px;
       border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-
+    .formation-card:hover {
+      transform: scale(1.03);
+    }
+    .formation-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #003366;
+      margin-top: 40px;
+    }
     form {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 30px;
     }
-
-    input, select, textarea, button {
+    form label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    form input, form select, form button {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 10px;
+      margin-bottom: 20px;
       border-radius: 6px;
       border: 1px solid #ccc;
-      font-size: 16px;
     }
-
-    button {
-      background-color: #0071e3;
+    form button {
+      background: #003366;
       color: white;
       font-weight: bold;
-      border: none;
       cursor: pointer;
-      transition: background 0.3s;
     }
-
-    button:hover {
-      background-color: #005bb5;
+    .note {
+      font-size: 0.9em;
+      color: #666;
     }
-
-    .logos {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
-
-    .logos img {
-      height: 60px;
-    }
-
-    blockquote {
+    .quote {
       font-style: italic;
-      border-left: 4px solid #003366;
-      padding-left: 15px;
-      margin: 30px 0;
-      color: #555;
+      text-align: center;
+      margin: 30px auto;
+      color: #444;
     }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      color: #333;
-    }
-
-    @media (max-width: 500px) {
-      .formation img {
-        max-height: 120px;
+    @media (max-width: 768px) {
+      .formation-card {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Logo_Mon_Compte_Formation.svg/2560px-Logo_Mon_Compte_Formation.svg.png" alt="Logo Mon Compte Formation">
-    <h1>Formations CPF 100% finançables</h1>
-    <p>🔔 Une participation de 102,23€ est demandée depuis le 2 mai 2024</p>
-  </header>
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Logo_CPF.svg" alt="Logo CPF">
+  <h1>Formations CPF 100% Finançables</h1>
+  <p>Certifiantes • En ligne • Accompagnement personnalisé</p>
+</header>
 
-  <div class="container">
-    <blockquote>“Investir dans la formation, c’est préparer son avenir avec confiance.”</blockquote>
+<div class="container">
+  <p class="intro">
+    Aujourd’hui, utiliser vos droits CPF est devenu un vrai casse-tête administratif. Notre mission : vous accompagner pour valider une formation certifiante 100% finançable par vos droits.<br>
+    Nous répondons à toutes vos questions et trouvons la solution à chaque complication.
+  </p>
 
-    <div class="formation-list">
+  <div class="quote">
+    “Le succès n’est pas final, l’échec n’est pas fatal : c’est le courage de continuer qui compte.” — Winston Churchill
+  </div>
 
-      <div class="formation">
-        <h3>🇬🇧 Anglais - Business & Voyage</h3>
-        <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/english-1291383_960_720.png" alt="Anglais">
-        <p>Progressez rapidement en anglais pour voyager ou travailler à l’international.</p>
-      </div>
-
-      <div class="formation">
-        <h3>🇪🇸 Espagnol - Communication pratique</h3>
-        <img src="https://cdn.pixabay.com/photo/2017/01/31/21/23/spain-2025213_960_720.png" alt="Espagnol">
-        <p>Apprenez à communiquer avec aisance en espagnol, dans un cadre personnel ou professionnel.</p>
-      </div>
-
-      <div class="formation">
-        <h3>💻 WordPress - Création de site</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg" alt="WordPress">
-        <p>Créez un site professionnel ou personnel sans coder grâce à WordPress.</p>
-      </div>
-
-      <div class="formation">
-        <h3>📷 Photoshop - Retouche & Graphisme</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop">
-        <p>Maîtrisez la création visuelle et la retouche photo professionnelle.</p>
-      </div>
-
-      <div class="formation">
-        <h3>🎨 Illustrator - Design vectoriel</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Illustrator">
-        <p>Créez des logos, flyers et visuels percutants avec Illustrator.</p>
-      </div>
-
-      <div class="formation">
-        <h3>🏗️ Sketchup - Modélisation 3D</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/SketchUp_Logo.png" alt="Sketchup">
-        <p>Initiez-vous à la 3D pour l’architecture et le design intérieur.</p>
-      </div>
-
+  <h2>Nos formations disponibles :</h2>
+  <div class="formations">
+    <div class="formation-card" onclick="document.getElementById('formation').value='Anglais'; document.getElementById('form').scrollIntoView();">
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="Anglais">
+      <h3>Anglais Professionnel</h3>
+      <p>Boostez votre anglais avec une certification reconnue, adaptée au monde professionnel.</p>
     </div>
-
-    <h2>📩 Vérifiez votre éligibilité CPF</h2>
-    <form action="https://script.google.com/macros/s/AKfycbyPXA-SHsztdadlDlqY9tKCOgAqiTlX0TDsR_buW8Q/exec" method="POST">
-      <label for="nom">Nom</label>
-      <input type="text" id="nom" name="nom" required>
-
-      <label for="prenom">Prénom</label>
-      <input type="text" id="prenom" name="prenom" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="formation">Formation souhaitée</label>
-      <select name="formation" id="formation" required>
-        <option>Anglais</option>
-        <option>Espagnol</option>
-        <option>Italien</option>
-        <option>Allemand</option>
-        <option>Excel</option>
-        <option>Word</option>
-        <option>PowerPoint</option>
-        <option>WordPress</option>
-        <option>Photoshop</option>
-        <option>Illustrator</option>
-        <option>SketchUp</option>
-        <option>IA dans le cycle de vente</option>
-      </select>
-
-      <label for="situation">Situation professionnelle</label>
-      <select name="situation" id="situation" required>
-        <option>En activité</option>
-        <option>En recherche d'emploi</option>
-      </select>
-
-      <label for="experience">Avez-vous travaillé +2 ans en France ?</label>
-      <select name="experience" id="experience" required>
-        <option>Oui</option>
-        <option>Non</option>
-      </select>
-
-      <label for="motivation">Objectif</label>
-      <select name="motivation" id="motivation">
-        <option>Projet professionnel</option>
-        <option>Développement personnel</option>
-      </select>
-
-      <p><strong>✅ À lire avant de valider :</strong></p>
-      <ul>
-        <li>Depuis le 2 mai 2024, un reste à charge obligatoire de 102,23 € s’applique aux personnes en activité.</li>
-        <li>Nous ne proposons plus les CACES ni les permis</li>
-        <li>Les formations disponibles sont listées ci-dessus</li>
-      </ul>
-      <input type="checkbox" required> J’ai bien compris et j’accepte ces conditions.
-
-      <button type="submit">📞 Être rappelé(e) par un conseiller</button>
-    </form>
-
-    <div class="logos">
-      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c3/Logo_de_la_R%C3%A9publique_fran%C3%A7aise_%282020%29.svg/1280px-Logo_de_la_R%C3%A9publique_fran%C3%A7aise_%282020%29.svg.png" alt="République Française">
-      <img src="https://www.caissedesdepots.fr/sites/default/files/styles/ogimage/public/2021-04/logo_cdc_web.png" alt="Caisse des Dépôts">
+    <div class="formation-card" onclick="document.getElementById('formation').value='Espagnol'; document.getElementById('form').scrollIntoView();">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="Espagnol">
+      <h3>Espagnol</h3>
+      <p>Développez vos compétences linguistiques pour élargir vos opportunités à l'international.</p>
+    </div>
+    <div class="formation-card" onclick="document.getElementById('formation').value='Allemand'; document.getElementById('form').scrollIntoView();">
+      <img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="Allemand">
+      <h3>Allemand</h3>
+      <p>Maîtrisez l’allemand pour améliorer votre profil professionnel en Europe.</p>
+    </div>
+    <div class="formation-card" onclick="document.getElementById('formation').value='Création de site WordPress'; document.getElementById('form').scrollIntoView();">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174881.png" alt="WordPress">
+      <h3>Création de Site Web (WordPress)</h3>
+      <p>Apprenez à créer votre site vitrine ou e-commerce de A à Z.</p>
+    </div>
+    <div class="formation-card" onclick="document.getElementById('formation').value='Excel & Word'; document.getElementById('form').scrollIntoView();">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732220.png" alt="Excel">
+      <h3>Excel & Word</h3>
+      <p>Maîtrisez les outils bureautiques essentiels à votre activité quotidienne.</p>
+    </div>
+    <div class="formation-card" onclick="document.getElementById('formation').value='Photoshop'; document.getElementById('form').scrollIntoView();">
+      <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Photoshop">
+      <h3>Photoshop</h3>
+      <p>Apprenez à créer des visuels professionnels pour le web et l'impression.</p>
+    </div>
+    <div class="formation-card" onclick="document.getElementById('formation').value='Marketing Digital'; document.getElementById('form').scrollIntoView();">
+      <img src="https://cdn-icons-png.flaticon.com/512/906/906349.png" alt="Marketing Digital">
+      <h3>Marketing Digital</h3>
+      <p>Maîtrisez les stratégies en ligne pour développer votre activité ou trouver un emploi.</p>
+    </div>
+    <div class="formation-card" onclick="document.getElementById('formation').value='Intelligence Artificielle dans la Vente'; document.getElementById('form').scrollIntoView();">
+      <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="IA">
+      <h3>IA & Vente</h3>
+      <p>Utilisez l’intelligence artificielle pour améliorer vos performances commerciales.</p>
     </div>
   </div>
 
-  <footer>
-    <p>© 2025 - Centre de formation partenaire CPF. Page optimisée GitHub Pages.</p>
-  </footer>
+  <h2>Formulaire de vérification CPF :</h2>
+  <form id="form" action="https://script.google.com/macros/s/AKfycbyPXA-SHsztdadlDlqY9tKCOgAqiTlX0TDsR_buW8Q/exec" method="POST">
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" name="prenom" required>
+
+    <label for="tel">Téléphone</label>
+    <input type="tel" id="tel" name="tel" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="formation">Formation souhaitée</label>
+    <select id="formation" name="formation" required>
+      <option value="">-- Choisir une formation --</option>
+      <option value="Anglais">Anglais</option>
+      <option value="Espagnol">Espagnol</option>
+      <option value="Allemand">Allemand</option>
+      <option value="Excel & Word">Excel & Word</option>
+      <option value="Photoshop">Photoshop</option>
+      <option value="Création de site WordPress">Création de site WordPress</option>
+      <option value="Marketing Digital">Marketing Digital</option>
+      <option value="Intelligence Artificielle dans la Vente">Intelligence Artificielle dans la Vente</option>
+    </select>
+
+    <label><input type="checkbox" name="engagement" required> Je confirme que je ne souhaite pas de formation Permis ou CACES</label>
+    <label><input type="checkbox" required> J’ai bien noté qu’un reste à charge est désormais obligatoire pour les personnes en activité</label>
+
+    <button type="submit">Vérifier mon éligibilité</button>
+    <p class="note">*Selon votre situation CPF actuelle et votre activité.</p>
+  </form>
+</div>
+
+<footer>
+  © 2025 - Centre Formation CPF | Mon Compte Formation | République Française
+</footer>
 </body>
 </html>
